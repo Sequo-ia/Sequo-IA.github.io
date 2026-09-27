@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEQUO-IA: International Research Consortium for Sequential Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --accent: #005bb5;
+            --secondary: #555;
+            --card-bg: #f8f9fa;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .abstract {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            border-left: 4px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: var(--card-bg);
+            font-weight: 600;
+        }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-content: center;
+
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+        .card {
+                        border: 1px solid var(--border);
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+			
+      font-family: Inter, system-ui, sans-serif;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            
+			 font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 1.5rem;
+      font-weight: 800;
+            margin: 0;
+            text-align: left;
+            color: var(--secondary);
+      line-height: 1.2;
+        }
+		
+		a {
+      display: block;
+      padding: 20px;
+      border-radius: 18px;
+      text-decoration: none;
+    }
+ 
+    a:hover {
+      background-color:  #2563eb;
+    }
+
+        .footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="subtitle">Research Manifesto</div>
+        <h1>SEQUO-IA: Learning what to experiment next</h1>
+    </header>
+
+    <div class="abstract">
+       "SEQUential On-World experimentation, Inference and Adaptative processes" (SEQUO-IA) is an International Research Consortium dedicated to Sequential Science. </div>
+
+  <!--
+    <section id="positioning">
+        <h2>Positioning the Paradigm</h2>
+        <p>
+            While recent advances in "AI Scientists" have demonstrated remarkable capabilities in generating research papers and code <em>in-silico</em>, they remain largely confined to the manipulation of existing human knowledge. These Large Language Model (LLM) based approaches act as synthesizers of the known, rather than explorers of the unknown.
+        </p>
+        <p>
+            The <strong>Scientist AI</strong> framework proposed here represents a radical departure. We define the "New Frontier" not as the speed of text generation, but as the capacity for <strong>Adaptive Real-World Experimentation</strong>. This approach views science as a sequential decision problem under uncertainty, where the agent must interact with physical, biological, or social systems to acquire novel data, rather than working purely on simulations.
+        </p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>In-Silico AI</th>
+                    <th>Scientist AI (The New Frontier)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Primary Engine</strong></td>
+                    <td>LLMs / Foundation Models</td>
+                    <td>Sequential Learning / RL / Bayes Opt</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Source</strong></td>
+                    <td>Static Literature / Simulators</td>
+                    <td>Real-World Experimental Feedback</td>
+                </tr>
+                <tr>
+                    <td><strong>Objective</strong></td>
+                    <td>Paper Generation / Synthesis</td>
+                    <td>Discovery / Policy Optimization</td>
+                </tr>
+                <tr>
+                    <td><strong>Interaction</strong></td>
+                    <td>Passive (Reading/Writing)</td>
+                    <td>Active (Probing/Experimenting)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+  -->
+
+    <section id="methodology">
+        <h2>The Core Framework</h2>
+        <p>
+            At the heart of SEQUO-IA is the integration of <strong>Uncertainty Quantification</strong> and <strong>Active Learning</strong> in <stong>Experimental Design</stong>.
+            Instead of processing fixed datasets, these systems design the next experiment, whether it be a chemical titration, a clinical trial dosage, or a plasma pulse in a fusion reactor, 
+          to maximize information gain or satisfy multi-objective safety constraints.
+        </p>
+    </section>
+
+    <section id="examples">
+        <h2>Vertical Domains of Discovery</h2>
+        <p>Explore how SEQUO-IA principles are applied across diverse scientific disciplines through adaptive, sequential frameworks:</p>
+        
+        <div class="grid">
+            <a href="scientistai_biology.html" class="card">
+                <h3>Synthetic Biology</h3>
+                <p>Directed Evolution of a Plastic-Degrading Enzymes</p>
+            </a>
+
+            <a href="scientistai_physics.html" class="card">
+                <h3>Plasma Physics</h3>
+                <p>Adaptive Plasma Parameter Optimization in Tokamak Fusion Experiments</p>
+            </a>
+
+            <a href="scientistai_clinicaltrials.html" class="card">
+                <h3>Clinical Trials</h3>
+                <p>Adaptive Oncology Trial for Personalized Immunotherapy.</p>
+            </a>
+
+            <a href="scientistai_agroecology.html" class="card">
+                <h3>Agroecology Trials</h3>
+                <p>Adaptive Intercropping and Irrigation Optimization for Climate-Resilient Agriculture</p>
+            </a>
+
+            <a href="scientistai_robotics.html" class="card">
+                <h3>Autonomous Robotics</h3>
+                <p>Autonomous Underwater Exploration and Hydrothermal Vent Discovery </p>
+            </a>
+
+            <a href="scientistai_sociology.html" class="card">
+                <h3>Computational Sociology</h3>
+                <p>Adaptive Misinformation Mitigation and Civic Trust Experiment on Social Platforms </p>
+            </a>
+
+            <a href="scientistai_education.html" class="card">
+                <h3>Educational Science</h3>
+                <p>Personalized Mathematics Curriculum Optimization in Secondary Education</p>
+            </a>
+			
+			<a href="scientistai_neuroscience.html" class="card">
+                <h3>Neuroscience</h3>
+                <p>Closed-Loop Deep Brain Stimulation for Adaptive Parkinson’s Disease Treatment.</p>
+            </a>
+			
+			
+			<a href="scientistai_ecology.html" class="card">
+                <h3> Preservation Ecology</h3>
+                <p>Adaptive Conservation Management for Pollinator Biodiversity Collapse.</p>
+            </a>
+			
+			
+			
+			<a href="scientistai_discovery.html" class="card">
+                <h3> Meta-science</h3>
+                <p>Closed-Loop Autonomous Hypothesis Generation and Experimental Discovery Platform.</p>
+            </a>
+			
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p> SEQUO-IA · SEQUential On-World experimentation through Interactive Adaptation</p>
+        <p><em>"Learning what to experiment next"</em></p>
+    </footer>
+</div>
+
+</body>
+</html>
