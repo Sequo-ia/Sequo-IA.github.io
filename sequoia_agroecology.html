@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEQUO-IA — Agroecology Experiment Example</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+  
+  
+  <section class="experiment-card">
+
+  <div class="eyebrow">
+    Agroecology · Adaptive Field Experimentation
+  </div>
+
+  <h1>
+    Adaptive Intercropping and Irrigation Optimization for Climate-Resilient Agriculture
+  </h1>
+
+  <p class="lead">
+    An agroecology research station studies how to optimize maize–bean intercropping systems under increasingly unstable climatic conditions in southern Europe. Researchers aim to maximize long-term crop productivity while simultaneously reducing water consumption, preserving soil fertility, limiting nitrogen runoff, and improving resilience to drought episodes. Experimental plots are distributed across heterogeneous soil conditions and microclimates, and each agricultural season requires deciding irrigation schedules, crop spatial arrangements, planting densities, and organic fertilization strategies. Unlike controlled laboratory experiments, the system evolves under partially unpredictable weather conditions, delayed biological responses, and strong spatial dependencies between neighboring plots. Furthermore, interventions interact over multiple temporal scales: irrigation decisions influence microbial activity and soil structure weeks later, while crop rotation decisions affect fertility across several years. The experiment therefore becomes a constrained sequential decision problem under environmental uncertainty, where scientists must continuously balance productivity, ecological sustainability, resource limitations, and scientific understanding of agroecosystem dynamics.
+  </p>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Workflow
+      </h2>
+
+      <ul>
+
+        <li>
+          Partition agricultural land into heterogeneous experimental plots.
+        </li>
+
+        <li>
+          Measure soil humidity, nutrient concentration, microbial activity, and local weather conditions.
+        </li>
+
+        <li>
+          Select irrigation schedules, intercropping configurations, and fertilization strategies.
+        </li>
+
+        <li>
+          Monitor crop growth, disease propagation, biodiversity indicators, and soil degradation.
+        </li>
+
+        <li>
+          Collect delayed seasonal outcomes such as final yield and long-term soil quality.
+        </li>
+
+        <li>
+          Update predictive models of ecological and agronomic dynamics.
+        </li>
+
+        <li>
+          Adapt future interventions across subsequent growing seasons.
+        </li>
+
+      </ul>
+
+      <div class="tag-list">
+
+        <div class="tag">Constrained RL</div>
+
+        <div class="tag">Spatial Decision-Making</div>
+
+        <div class="tag">Nonstationary Environments</div>
+
+        <div class="tag">Delayed Feedback</div>
+
+        <div class="tag">Multi-Objective Optimization</div>
+
+        <div class="tag">Climate Adaptation</div>
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        RL / Statistical Formalization
+      </h2>
+
+      <p>
+        Let:
+      </p>
+
+      <div class="math-box">
+
+        $$
+        s_t =
+        (H_t, N_t, M_t, W_t, B_t)
+        $$
+
+        denote the latent agroecological state at season $t$, where:
+
+        <ul>
+
+          <li>
+            $H_t$: soil humidity,
+          </li>
+
+          <li>
+            $N_t$: nutrient concentration,
+          </li>
+
+          <li>
+            $M_t$: microbial activity,
+          </li>
+
+          <li>
+            $W_t$: weather and climate conditions,
+          </li>
+
+          <li>
+            $B_t$: biodiversity indicators.
+          </li>
+
+        </ul>
+
+        <br>
+
+        The intervention policy selects:
+
+        $$
+        a_t =
+        (I_t, F_t, C_t)
+        $$
+
+        where:
+
+        <ul>
+
+          <li>
+            $I_t$: irrigation strategy,
+          </li>
+
+          <li>
+            $F_t$: fertilization strategy,
+          </li>
+
+          <li>
+            $C_t$: crop arrangement and intercropping configuration.
+          </li>
+
+        </ul>
+
+        <br>
+
+        The resulting agroecological dynamics follow:
+
+        $$
+        s_{t+1}
+        \sim
+        P(\cdot \mid s_t, a_t)
+        $$
+
+        with partially unknown and climate-dependent transitions.
+
+        <br><br>
+
+        The long-term utility combines productivity and sustainability objectives:
+
+        $$
+        r_t =
+        \alpha Y_t
+        -
+        \beta W_t^{use}
+        -
+        \gamma R_t
+        +
+        \delta B_t
+        $$
+
+        where:
+
+        <ul>
+
+          <li>
+            $Y_t$: agricultural yield,
+          </li>
+
+          <li>
+            $W_t^{use}$: water consumption,
+          </li>
+
+          <li>
+            $R_t$: nitrogen runoff and soil degradation,
+          </li>
+
+          <li>
+            $B_t$: biodiversity preservation.
+          </li>
+
+        </ul>
+
+        <br>
+
+        The adaptive objective becomes:
+
+        $$
+        \max_{\pi}
+        \mathbb{E}
+        \left[
+        \sum_{t=1}^{T}
+        r_t
+        \right]
+        $$
+
+        under environmental and resource constraints.
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Constraints
+      </h2>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Spatial Dependency Constraint
+        </div>
+
+        Neighboring plots interact through water diffusion, pest propagation, and nutrient competition.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Temporal Constraint
+        </div>
+
+        Many ecological effects emerge only after weeks, seasons, or multiple crop cycles.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Climate Nonstationarity
+        </div>
+
+        Weather distributions evolve over time due to climate variability and extreme events.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Resource Constraint
+        </div>
+
+        Water availability and organic fertilizers remain limited throughout the growing season.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Sustainability Constraint
+        </div>
+
+        Excessive short-term optimization may irreversibly damage soil fertility and biodiversity.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Delayed Feedback Constraint
+        </div>
+
+        Final crop yield and ecological indicators become observable only at harvest time.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Partial Observability
+        </div>
+
+        Soil microbiome dynamics and underground root interactions remain only partially measurable.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Budget Constraint
+        </div>
+
+        Large-scale field experimentation requires seasonal labor, sensor infrastructure, and irrigation costs.
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Scientific Decision-Making Challenges
+      </h2>
+
+      <ul>
+
+        <li>
+          <strong>Exploration versus sustainability:</strong>
+          testing aggressive interventions may improve short-term yield while damaging long-term ecosystem health.
+        </li>
+
+        <li>
+          <strong>Multi-scale dynamics:</strong>
+          interventions interact across daily, seasonal, and multi-year ecological timescales.
+        </li>
+
+        <li>
+          <strong>Nonstationarity:</strong>
+          climate conditions and pest populations evolve unpredictably.
+        </li>
+
+        <li>
+          <strong>Spatial coupling:</strong>
+          decisions on one plot influence neighboring plots through ecological interactions.
+        </li>
+
+        <li>
+          <strong>Partial ecological knowledge:</strong>
+          many microbial and ecosystem mechanisms remain poorly understood.
+        </li>
+
+        <li>
+          <strong>Tradeoffs between objectives:</strong>
+          maximizing yield may conflict with biodiversity preservation or water conservation.
+        </li>
+
+        <li>
+          <strong>Scientific discovery:</strong>
+          researchers seek mechanistic understanding of resilient agroecological interactions.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Representative Research Directions
+      </h2>
+
+      <ul>
+
+        <li>
+          Reinforcement learning for irrigation scheduling.
+        </li>
+
+        <li>
+          Spatial RL and graph-based ecological optimization.
+        </li>
+
+        <li>
+          Climate-adaptive decision-making.
+        </li>
+
+        <li>
+          Multi-objective and constrained RL.
+        </li>
+
+        <li>
+          Bayesian optimization for crop management.
+        </li>
+
+        <li>
+          Safe exploration in environmental systems.
+        </li>
+
+        <li>
+          Long-horizon ecological planning.
+        </li>
+
+        <li>
+          Multi-agent coordination across agricultural plots.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Example Scientific References
+      </h2>
+
+      <ul>
+
+        <li>
+          Sutton & Barto — Reinforcement Learning foundations.
+        </li>
+
+        <li>
+          van Klompenburg et al. — RL for greenhouse climate control.
+        </li>
+
+        <li>
+          Gomes et al. — Machine learning for precision agriculture.
+        </li>
+
+        <li>
+          Jiang et al. — Deep RL for irrigation scheduling.
+        </li>
+
+        <li>
+          Bergez et al. — Dynamic crop management systems.
+        </li>
+
+        <li>
+          Killian et al. — RL for sustainable resource management.
+        </li>
+
+        <li>
+          OpenAI / Wageningen CropGym initiatives.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+
+    <strong>Sequo-ia Perspective.</strong>
+
+    Agroecology illustrates how real-world experimentation involves long-horizon uncertainty, spatial interactions, delayed ecological effects, sustainability constraints, and multi-objective optimization. Such systems naturally exceed the scope of static prediction and require adaptive experimentation frameworks capable of balancing scientific discovery, environmental stewardship, and sequential decision-making under uncertainty.
+
+  </div>
+
+</section>
+
+
+  </div>
+
+</body>
+</html>
