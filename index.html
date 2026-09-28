@@ -3,304 +3,1088 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEQUO-IA: International Research Consortium for Sequential Science</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <title>SEQUO-IA — Sequential Science</title>
+
+    <meta name="description"
+          content="SEQUO-IA is an international research consortium developing the mathematical, statistical and machine-learning foundations of sequential and adaptive experimentation.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
     <style>
+
         :root {
             --bg: #ffffff;
-            --text: #1a1a1a;
-            --accent: #005bb5;
-            --secondary: #555;
-            --card-bg: #f8f9fa;
-            --border: #e0e0e0;
+            --surface: #f7f9fc;
+            --surface-2: #eef3f9;
+
+            --text: #172033;
+            --muted: #596579;
+
+            --blue: #2563eb;
+            --blue-dark: #173b8f;
+            --violet: #6846c7;
+
+            --border: #dfe5ee;
+
+            --max-width: 1080px;
         }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
             margin: 0;
-            padding: 0;
-            background-color: var(--bg);
+            background: var(--bg);
+            color: var(--text);
+
+            font-family: "Inter", sans-serif;
+            line-height: 1.65;
         }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
 
         .container {
-            max-width: 900px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 0 2rem;
         }
 
-        header {
-            border-bottom: 2px solid var(--text);
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
+
+        /* -------------------------------------------------
+           NAVIGATION
+        ------------------------------------------------- */
+
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0 0 1rem 0;
-            line-height: 1.1;
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: auto;
+
+            padding: 0 2rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            font-weight: 300;
+
+        .nav-logo {
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+
+        /* -------------------------------------------------
+           HERO
+        ------------------------------------------------- */
+
+        .hero {
+            position: relative;
+
+            padding: 7rem 1rem 5rem;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(104, 70, 199, 0.10),
+                    transparent 35%
+                );
+        }
+
+
+        .eyebrow {
+            margin-bottom: 1.5rem;
+
+            font-size: 0.82rem;
+            font-weight: 700;
+
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.16em;
+
+            color: var(--blue);
         }
 
-        .abstract {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 3rem;
-            color: var(--secondary);
-            border-left: 4px solid var(--accent);
-            padding-left: 1.5rem;
+
+        .hero h1 {
+            margin: 0;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(3.2rem, 8vw, 6rem);
+            line-height: 0.95;
+
+            letter-spacing: -0.04em;
         }
+
+
+        .hero h1 .highlight {
+            color: var(--blue);
+        }
+
+
+        .hero-subtitle {
+            max-width: 850px;
+
+            margin: 1.8rem auto 0;
+
+            font-size: clamp(1.15rem, 2vw, 1.45rem);
+            font-weight: 500;
+
+            color: var(--muted);
+        }
+
+
+        .hero-description {
+            max-width: 720px;
+
+            margin: 1.5rem auto 0;
+
+            font-size: 1.05rem;
+
+            color: var(--muted);
+        }
+
+
+        .quote {
+            margin: 3rem auto 0;
+
+            font-family: "Playfair Display", serif;
+            font-size: 1.7rem;
+            font-style: italic;
+
+            color: var(--text);
+        }
+
+
+        .quote::before,
+        .quote::after {
+            color: var(--blue);
+        }
+
+
+        /* -------------------------------------------------
+           INSTITUTIONS
+        ------------------------------------------------- */
+
+        .institutions {
+            padding: 2.5rem 0;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            background: var(--surface);
+        }
+
+
+        .institutions-title {
+            margin-bottom: 1.5rem;
+
+            text-align: center;
+
+            font-size: 0.75rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+
+            color: #7a8495;
+        }
+
+
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 2rem 3.5rem;
+        }
+
+
+        .logo {
+            width: 150px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #687386;
+
+            font-size: 0.85rem;
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+
+        .logo img {
+            max-width: 140px;
+            max-height: 55px;
+
+            object-fit: contain;
+
+            filter: grayscale(100%);
+            opacity: 0.75;
+
+            transition: opacity 0.2s, filter 0.2s;
+        }
+
+
+        .logo img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+
+        /* -------------------------------------------------
+           SECTIONS
+        ------------------------------------------------- */
 
         section {
-            margin-bottom: 4rem;
+            padding: 5rem 0;
         }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+
+        .section-heading {
+            max-width: 720px;
+
+            margin: 0 auto 3rem;
+
+            text-align: center;
         }
 
-        p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
+
+        .section-heading h2 {
+            margin: 0 0 1rem;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 2.4rem;
+            line-height: 1.2;
         }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
+
+        .section-heading p {
+            margin: 0;
+
+            color: var(--muted);
+            font-size: 1.05rem;
         }
 
-        .comparison-table th, .comparison-table td {
+
+        /* -------------------------------------------------
+           CORE IDEA
+        ------------------------------------------------- */
+
+        .core {
+            background: var(--surface);
+        }
+
+
+        .principles {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1.5rem;
+        }
+
+
+        .principle {
+            padding: 2rem;
+
+            background: white;
+
             border: 1px solid var(--border);
-            padding: 1rem;
-            text-align: left;
+            border-radius: 16px;
+
+            box-shadow: 0 8px 30px rgba(20, 35, 60, 0.05);
         }
 
-        .comparison-table th {
-            background-color: var(--card-bg);
+
+        .principle-number {
+            margin-bottom: 1rem;
+
+            font-size: 0.75rem;
+            font-weight: 700;
+
+            color: var(--blue);
+
+            letter-spacing: 0.12em;
+        }
+
+
+        .principle h3 {
+            margin: 0 0 0.8rem;
+
+            font-size: 1.15rem;
+        }
+
+
+        .principle p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.95rem;
+        }
+
+
+        /* -------------------------------------------------
+           LOOP DIAGRAM
+        ------------------------------------------------- */
+
+        .loop {
+            margin-top: 3rem;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 0.7rem;
+
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    justify-content: center;
 
-    gap: 1.5rem;
-    margin-top: 2rem;
-    text-align: center;
-}
+        .loop span {
+            padding: 0.65rem 1rem;
 
-        .card {
-                        border: 1px solid var(--border);
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            padding: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-			
-      font-family: Inter, system-ui, sans-serif;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            background: white;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border-color: var(--accent);
+
+        .loop .arrow {
+            border: none;
+            background: transparent;
+
+            padding: 0;
+
+            color: var(--blue);
+
+            font-size: 1.2rem;
         }
 
-        .card h3 {
-            
-			 font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2563eb;
-      margin-bottom: 12px;
+
+        /* -------------------------------------------------
+           DOMAINS
+        ------------------------------------------------- */
+
+        .domains {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 1.25rem;
         }
 
-        .card p {
-            font-size: 1.5rem;
-      font-weight: 800;
+
+        .domain {
+            position: relative;
+
+            padding: 1.8rem;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: white;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+
+        .domain:hover {
+            transform: translateY(-4px);
+
+            border-color: #b8c9ed;
+
+            box-shadow: 0 12px 30px rgba(20, 35, 60, 0.08);
+        }
+
+
+        .domain-category {
+            margin-bottom: 0.6rem;
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--blue);
+        }
+
+
+        .domain h3 {
+            margin: 0 0 0.5rem;
+
+            font-size: 1.15rem;
+        }
+
+
+        .domain p {
             margin: 0;
-            text-align: left;
-            color: var(--secondary);
-      line-height: 1.2;
-        }
-		
-		a {
-      display: block;
-      padding: 20px;
-      border-radius: 18px;
-      text-decoration: none;
-    }
- 
-    a:hover {
-      background-color:  #2563eb;
-    }
 
-        .footer {
-            margin-top: 6rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--secondary);
-            text-align: center;
+            color: var(--muted);
+
+            font-size: 0.92rem;
         }
+
+
+        /* -------------------------------------------------
+           POSITIONING
+        ------------------------------------------------- */
+
+        .statement {
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 2.5rem;
+
+            border-left: 4px solid var(--blue);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37, 99, 235, 0.06),
+                    rgba(104, 70, 199, 0.03)
+                );
+
+            border-radius: 0 14px 14px 0;
+        }
+
+
+        .statement p {
+            margin: 0;
+
+            font-size: 1.15rem;
+
+            color: var(--text);
+        }
+
+
+        /* -------------------------------------------------
+           FOOTER
+        ------------------------------------------------- */
+
+        footer {
+            padding: 3rem 0;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 0.85rem;
+        }
+
+
+        .footer-name {
+            margin-bottom: 0.5rem;
+
+            color: var(--text);
+
+            font-weight: 700;
+
+            letter-spacing: 0.05em;
+        }
+
+
+        /* -------------------------------------------------
+           RESPONSIVE
+        ------------------------------------------------- */
+
+        @media (max-width: 760px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero {
+                padding-top: 5rem;
+            }
+
+
+            .principles {
+                grid-template-columns: 1fr;
+            }
+
+
+            .domains {
+                grid-template-columns: 1fr;
+            }
+
+
+            .loop {
+                flex-direction: column;
+            }
+
+
+            .loop .arrow {
+                transform: rotate(90deg);
+            }
+
+
+            section {
+                padding: 4rem 0;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-<div class="container">
-    <header>
-        <div class="subtitle">Research Consortium</div>
-        <h1><strong>Sequ</strong>ential <strong>O</strong>n-world experimentation, <strong>I</strong>nference and <strong>A</strong>daptative processes (SEQUO-IA)</h1>
-    </header>
 
-	<div>
-		<h2>
-			An International Research Consortium for Sequential Science. 
-		</h2>
-	</div>
-    <div class="abstract">
-		"Learning what to experiment next"
-      </div>
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
 
-  <!--
-    <section id="positioning">
-        <h2>Positioning the Paradigm</h2>
-        <p>
-            While recent advances in "AI Scientists" have demonstrated remarkable capabilities in generating research papers and code <em>in-silico</em>, they remain largely confined to the manipulation of existing human knowledge. These Large Language Model (LLM) based approaches act as synthesizers of the known, rather than explorers of the unknown.
-        </p>
-        <p>
-            The <strong>Scientist AI</strong> framework proposed here represents a radical departure. We define the "New Frontier" not as the speed of text generation, but as the capacity for <strong>Adaptive Real-World Experimentation</strong>. This approach views science as a sequential decision problem under uncertainty, where the agent must interact with physical, biological, or social systems to acquire novel data, rather than working purely on simulations.
-        </p>
+<nav>
 
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>In-Silico AI</th>
-                    <th>Scientist AI (The New Frontier)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Primary Engine</strong></td>
-                    <td>LLMs / Foundation Models</td>
-                    <td>Sequential Learning / RL / Bayes Opt</td>
-                </tr>
-                <tr>
-                    <td><strong>Data Source</strong></td>
-                    <td>Static Literature / Simulators</td>
-                    <td>Real-World Experimental Feedback</td>
-                </tr>
-                <tr>
-                    <td><strong>Objective</strong></td>
-                    <td>Paper Generation / Synthesis</td>
-                    <td>Discovery / Policy Optimization</td>
-                </tr>
-                <tr>
-                    <td><strong>Interaction</strong></td>
-                    <td>Passive (Reading/Writing)</td>
-                    <td>Active (Probing/Experimenting)</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-  -->
+    <div class="nav-inner">
 
-    <section id="methodology">
-        <h2>The Core Framework</h2>
-        <p>
-            At the heart of SEQUO-IA is the integration of <strong>Uncertainty Quantification</strong> and <strong>Active Learning</strong> in <stong>Experimental Design</stong>.
-            Instead of processing fixed datasets, these systems design the next experiment, whether it be a chemical titration, a clinical trial dosage, or a plasma pulse in a fusion reactor, 
-          to maximize information gain or satisfy multi-objective safety constraints.
-        </p>
-    </section>
-
-    <section id="examples">
-        <h2>Vertical Domains of Discovery</h2>
-        <p>Explore how SEQUO-IA principles are applied across diverse scientific disciplines through adaptive, sequential frameworks:</p>
-        
-        <div class="grid">
-            <a href="sequoia_biology.html" class="card">
-                <h3>Synthetic Biology</h3>
-                <p>Directed Evolution of a Plastic-Degrading Enzymes</p>
-            </a>
-
-            <a href="sequoia_physics.html" class="card">
-                <h3>Plasma Physics</h3>
-                <p>Adaptive Plasma Parameter Optimization in Tokamak Fusion Experiments</p>
-            </a>
-
-            <a href="sequoia_clinicaltrials.html" class="card">
-                <h3>Clinical Trials</h3>
-                <p>Adaptive Oncology Trial for Personalized Immunotherapy.</p>
-            </a>
-
-            <a href="sequoia_agroecology.html" class="card">
-                <h3>Agroecology Trials</h3>
-                <p>Adaptive Intercropping and Irrigation Optimization for Climate-Resilient Agriculture</p>
-            </a>
-
-            <a href="sequoia_robotics.html" class="card">
-                <h3>Autonomous Robotics</h3>
-                <p>Autonomous Underwater Exploration and Hydrothermal Vent Discovery </p>
-            </a>
-
-            <a href="sequoia_sociology.html" class="card">
-                <h3>Computational Sociology</h3>
-                <p>Adaptive Misinformation Mitigation and Civic Trust Experiment on Social Platforms </p>
-            </a>
-
-            <a href="sequoia_education.html" class="card">
-                <h3>Educational Science</h3>
-                <p>Personalized Mathematics Curriculum Optimization in Secondary Education</p>
-            </a>
-			
-			<a href="sequoia_neuroscience.html" class="card">
-                <h3>Neuroscience</h3>
-                <p>Closed-Loop Deep Brain Stimulation for Adaptive Parkinson’s Disease Treatment.</p>
-            </a>
-			
-			
-			<a href="sequoia_ecology.html" class="card">
-                <h3> Preservation Ecology</h3>
-                <p>Adaptive Conservation Management for Pollinator Biodiversity Collapse.</p>
-            </a>
-			
-			
-			
-			<a href="sequoia_discovery.html" class="card">
-                <h3> Meta-science</h3>
-                <p>Closed-Loop Autonomous Hypothesis Generation and Experimental Discovery Platform.</p>
-            </a>
-			
+        <div class="nav-logo">
+            SEQUO-IA
         </div>
-    </section>
 
-    <footer class="footer">
-        <p> SEQUO-IA · SEQUential On-World experimentation through Interactive Adaptation</p>
-        <p><em>"Learning what to experiment next"</em></p>
-    </footer>
-</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#framework">Framework</a>
+            <a href="#domains">Domains</a>
+            <a href="#institutions">Institutions</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+    <div class="eyebrow">
+        International Research Consortium
+    </div>
+
+
+    <h1>
+        <span class="highlight">SEQUO</span>-IA
+    </h1>
+
+
+    <div class="hero-subtitle">
+
+        <strong>SEQU</strong>ential
+        <strong>O</strong>n-World Experimentation,
+        Inference and Adaptive Processes
+
+    </div>
+
+
+    <p class="hero-description">
+
+        An international, transcontinental and multidisciplinary
+        research consortium advancing the foundations of
+        <strong>Sequential Science</strong>.
+
+    </p>
+
+
+    <div class="quote">
+        “Learning what to experiment next.”
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     INSTITUTIONS
+====================================================== -->
+
+<section class="institutions" id="institutions">
+
+    <div class="container">
+
+        <div class="institutions-title">
+            Participating institutions
+        </div>
+
+
+        <div class="logos">
+
+            <!-- Replace these placeholders by your actual logos -->
+
+            <div class="logo">
+                <img src="images/inria.svg"
+                     alt="Inria">
+            </div>
+
+            <div class="logo">
+                <img src="images/university-lille.svg"
+                     alt="University of Lille">
+            </div>
+
+            <div class="logo">
+                <img src="images/institution-3.svg"
+                     alt="Institution">
+            </div>
+
+            <div class="logo">
+                <img src="images/institution-4.svg"
+                     alt="Institution">
+            </div>
+
+            <div class="logo">
+                <img src="images/institution-5.svg"
+                     alt="Institution">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+====================================================== -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                From experimental design<br>
+                to sequential science
+            </h2>
+
+            <p>
+                SEQUO-IA studies scientific experimentation as a
+                sequential learning and decision-making process.
+            </p>
+
+        </div>
+
+
+        <div class="statement">
+
+            <p>
+                Classical experimental designs typically specify
+                the experiments in advance. SEQUO-IA investigates
+                approaches in which <strong>each observation informs
+                the design of the next experiment</strong>, allowing
+                experimental strategies to adapt continuously to
+                uncertainty, constraints and accumulated evidence.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FRAMEWORK
+====================================================== -->
+
+<section class="core" id="framework">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                The Sequential Science framework
+            </h2>
+
+            <p>
+                A common mathematical and computational language
+                for adaptive experimentation across disciplines.
+            </p>
+
+        </div>
+
+
+        <div class="principles">
+
+
+            <div class="principle">
+
+                <div class="principle-number">
+                    01 · LEARN
+                </div>
+
+                <h3>
+                    Inference under uncertainty
+                </h3>
+
+                <p>
+                    Statistical inference, uncertainty quantification,
+                    sequential statistics and learning theory provide
+                    principled representations of what is known —
+                    and what remains uncertain.
+                </p>
+
+            </div>
+
+
+
+            <div class="principle">
+
+                <div class="principle-number">
+                    02 · DECIDE
+                </div>
+
+                <h3>
+                    Adaptive experimental design
+                </h3>
+
+                <p>
+                    Bandits, reinforcement learning, active learning,
+                    Bayesian optimization and sequential decision
+                    methods determine which experiment should be
+                    performed next.
+                </p>
+
+            </div>
+
+
+
+            <div class="principle">
+
+                <div class="principle-number">
+                    03 · GUARANTEE
+                </div>
+
+                <h3>
+                    Reliable scientific learning
+                </h3>
+
+                <p>
+                    Mathematical guarantees, statistical validity,
+                    robustness, safety and sample efficiency are
+                    essential when adaptive decisions interact with
+                    costly or safety-critical experiments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="loop">
+
+            <span>Experiment</span>
+
+            <span class="arrow">→</span>
+
+            <span>Observation</span>
+
+            <span class="arrow">→</span>
+
+            <span>Inference</span>
+
+            <span class="arrow">→</span>
+
+            <span>Adaptation</span>
+
+            <span class="arrow">→</span>
+
+            <span>Next experiment</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DOMAINS
+====================================================== -->
+
+<section id="domains">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                Sequential Science across disciplines
+            </h2>
+
+            <p>
+                The same principles can support adaptive experimentation
+                across laboratory, field and real-world scientific systems.
+            </p>
+
+        </div>
+
+
+
+        <div class="domains">
+
+
+            <a href="sequoia_biology.html" class="domain">
+
+                <div class="domain-category">
+                    Synthetic Biology
+                </div>
+
+                <h3>
+                    Directed evolution
+                </h3>
+
+                <p>
+                    Sequentially selecting experiments to identify
+                    and optimize biological functions.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_physics.html" class="domain">
+
+                <div class="domain-category">
+                    Plasma Physics
+                </div>
+
+                <h3>
+                    Adaptive plasma experiments
+                </h3>
+
+                <p>
+                    Learning experimental configurations while
+                    accounting for physical constraints and uncertainty.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_clinicaltrials.html" class="domain">
+
+                <div class="domain-category">
+                    Clinical Science
+                </div>
+
+                <h3>
+                    Adaptive clinical experimentation
+                </h3>
+
+                <p>
+                    Sequential allocation and experimental design
+                    under statistical and ethical constraints.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_agroecology.html" class="domain">
+
+                <div class="domain-category">
+                    Agroecology
+                </div>
+
+                <h3>
+                    On-Farm experimentation
+                </h3>
+
+                <p>
+                    Scaling adaptive experimentation from controlled
+                    trials to heterogeneous agricultural systems.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_robotics.html" class="domain">
+
+                <div class="domain-category">
+                    Robotics
+                </div>
+
+                <h3>
+                    Experimental autonomous systems
+                </h3>
+
+                <p>
+                    Sequential decision-making for scientific exploration
+                    and interaction with complex environments.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_neuroscience.html" class="domain">
+
+                <div class="domain-category">
+                    Neuroscience
+                </div>
+
+                <h3>
+                    Closed-loop experimentation
+                </h3>
+
+                <p>
+                    Adaptive experimental interventions driven by
+                    observations from biological systems.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_ecology.html" class="domain">
+
+                <div class="domain-category">
+                    Ecology
+                </div>
+
+                <h3>
+                    Adaptive environmental management
+                </h3>
+
+                <p>
+                    Sequential experimentation and decision-making
+                    for ecological systems.
+                </p>
+
+            </a>
+
+
+
+            <a href="sequoia_discovery.html" class="domain">
+
+                <div class="domain-category">
+                    Meta-science
+                </div>
+
+                <h3>
+                    Experimental discovery
+                </h3>
+
+                <p>
+                    Closing the loop between hypotheses, experiments,
+                    observations and subsequent scientific decisions.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-name">
+            SEQUO-IA
+        </div>
+
+        <div>
+            Sequential On-World Experimentation,
+            Inference and Adaptive Processes
+        </div>
+
+        <div style="margin-top: 0.7rem;">
+            <em>Learning what to experiment next.</em>
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>
