@@ -2,14 +2,12 @@
 
 ---
 
-### Challenge https://www.learn2design2026.com/ 
-
+### Challenge 
+- https://www.learn2design2026.com/ 
 
 ### Bandit optimization lib: 
 - https://pyxab.readthedocs.io/en/stable/index.html
 - https://botorch.org/
-
-
 
 ### Companies:
 - https://www.discoveryloop.com/
